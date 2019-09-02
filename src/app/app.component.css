@@ -1,0 +1,14 @@
+.title{
+    text-align: center;
+    color: white;
+    background-color: rgba(0,0,0, 0.9);
+    margin-left: 87px;
+    margin-right: 87px;
+    margin-top: 10px;
+
+}
+h1{
+    padding: 0px;
+    font-size: 80px;
+    font-family: serif;
+}
