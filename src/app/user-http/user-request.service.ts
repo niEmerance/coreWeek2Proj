@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { User } from '../user-class/user'
+import { User } from '../user-class/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserRequestService {
        user:User;
+       private username:string;
   constructor(private http:HttpClient) {
-      this.user=new User("","","",0,0,0,"");
+      this.user=new User("","","",0,0,0,"","");
    }
 
    userRequest(){
@@ -20,7 +21,8 @@ export class UserRequestService {
       public_repos:number;
       followers: number;
       following: number;
-      created_at:string;  
+      created_at:string;
+      repos_url: string;  
     }
     let promise= new Promise((resolve, reject)=>{
       this.http.get<ApiResponse>(environment.apiUrl).toPromise().then(response=>{
@@ -31,7 +33,7 @@ export class UserRequestService {
         this.user.followers=response.followers
         this.user.following=response.following
         this.user.created_at=response.created_at
-
+        this.user.repos_url=response.repos_url
         resolve()
       },
       error=>{
@@ -42,4 +44,8 @@ export class UserRequestService {
     })
     return promise
    }
+
+  // updateUser(username:string){
+  //   this.username=username;
+  // }
 }

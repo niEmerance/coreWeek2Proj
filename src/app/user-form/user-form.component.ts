@@ -12,11 +12,14 @@ import { UserRequestService } from '../user-http/user-request.service'
 })
 export class UserFormComponent implements OnInit {
               user:User;
+              username: string;
 
   constructor(private userService:UserRequestService) {
 
   }
-
+  // findUser(){
+  //   this.userService.updateUser(this.username);
+  // }
   ngOnInit() {
     // interface ApiResponse{
     //   login:string;
