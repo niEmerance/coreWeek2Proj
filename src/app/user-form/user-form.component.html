@@ -33,10 +33,10 @@
                                         </ul>
                                         <div class="panel panel-default">
                                                 <div class="panel-heading">
-                                                        <h3 class="panel-title">Repos</h3>
+                                                        <h3 class="panel-title">Repositories</h3>
                                                 </div>
-                                                <div class="panel-body" ngFor="let repo of repos">
-                                                        <p>{{user.repos_url}}</p>
+                                                <div class="panel-body" >
+                                                        <p *ngFor="let counter of repo">{{counter.name}}</p>
                                                 </div>
                                         </div>
                                 </div>
