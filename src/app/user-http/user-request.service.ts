@@ -9,14 +9,16 @@ import { Repository } from 'src/app/repository';
 })
 export class UserRequestService {
        user:User;
-       repo:Repository[];
+       repo:Repository;
+       arrRepo:Repository[];
        private username:string;
+
   constructor(private http:HttpClient) {
       this.user=new User("","","",0,0,0,"","");
-      this.repo=[];
+      this.repo=new Repository("","");
    }
 
-   userRequest(){
+   userRequest(login){
     interface ApiResponse{
       login:string;
       avatar_url: string;
@@ -28,7 +30,7 @@ export class UserRequestService {
       repos_url: string;  
     }
     let promise= new Promise((resolve, reject)=>{
-      this.http.get<ApiResponse>(environment.apiUrl).toPromise().then(response=>{
+      this.http.get<ApiResponse>("https://api.github.com/users/"+login+"?access_token="+environment.access_token).toPromise().then(response=>{
         this.user.login=response.login
         this.user.avatar_url=response.avatar_url
         this.user.company=response.company
@@ -47,17 +49,19 @@ export class UserRequestService {
     })
     return promise
    }
-   repoRequest(username){
+   repoRequest(login){
   interface ApiResponse{
     name: string;
     description: string;
     }
     let first= new Promise((resolve, reject)=>{
-      this.http.get<ApiResponse>(environment.apiUrl).toPromise().then(response=>{
-       for (let counter in response){
-         this.repo.push(response[counter]);
-       }
-       console.log(this.repo);
+      this.http.get<ApiResponse>("https://api.github.com/users/"+login+"?access_token="+environment.access_token).toPromise().then(response=>{
+      //  for (let counter in response){
+      //   console.log(this.arrRepo.push(response[counter])) ;
+         
+      //  }
+      this.repo.name=response.name
+      this.repo.description=response.description
        resolve();
       },
      error => {

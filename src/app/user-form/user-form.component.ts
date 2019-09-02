@@ -14,7 +14,7 @@ export class UserFormComponent implements OnInit {
               user:User;
               username: string;
 
-  constructor(private userService:UserRequestService) {
+  constructor(private http: HttpClient,private userService:UserRequestService) {
 
   }
   // findUser(){
@@ -30,11 +30,15 @@ export class UserFormComponent implements OnInit {
     //   following: number;
     //   created_at:string  
     this.userService.userRequest()
+    this.userService.repoRequest()
     this.user=this.userService.user
+  
     }
     // this.http.get<ApiResponse>("https://api.github.com/users/niEmerance?access_token=18d9bc95796705b5d97dd33ab88e8c0676d5ef76").subscribe(data=>{
     //   this.user=new User(data.login, data.avatar_url, data.company, data.public_repos, data.followers, data.following, data.created_at)
     // })
   // }
+  
+
 
 }
