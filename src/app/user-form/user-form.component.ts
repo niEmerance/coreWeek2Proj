@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../user-class/user'; 
 import { stringify } from 'querystring';
 import { UserRequestService } from '../user-http/user-request.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-form',
@@ -12,9 +13,9 @@ import { UserRequestService } from '../user-http/user-request.service'
 })
 export class UserFormComponent implements OnInit {
               user:User;
-              username: string;
+              username: string=" ";
 
-  constructor(private http: HttpClient,private userService:UserRequestService) {
+  constructor(private http: HttpClient,private userService:UserRequestService, private router:Router) {
 
   }
   // findUser(){
@@ -29,8 +30,8 @@ export class UserFormComponent implements OnInit {
     //   followers: number;
     //   following: number;
     //   created_at:string  
-    this.userService.userRequest()
-    this.userService.repoRequest()
+    this.userService.userRequest(this.username)
+    this.userService.repoRequest(this.username)
     this.user=this.userService.user
   
     }
@@ -39,6 +40,10 @@ export class UserFormComponent implements OnInit {
     // })
   // }
   
-
+    findUser(){
+      this.router.navigate(['userform', this.username])
+      this.userService.userRequest(this.username)
+      this.user=this.userService.user
+    }
 
 }

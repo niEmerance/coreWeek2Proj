@@ -10,12 +10,14 @@ import { Repository } from 'src/app/repository';
 export class UserRequestService {
        user:User;
        repo:Repository;
-       arrRepo:Repository[];
+       arrRepo:any;
        private username:string;
+      //  login="niEmerance";
 
   constructor(private http:HttpClient) {
       this.user=new User("","","",0,0,0,"","");
       this.repo=new Repository("","");
+      this.arrRepo=[]
    }
 
    userRequest(login){
@@ -56,12 +58,16 @@ export class UserRequestService {
     }
     let first= new Promise((resolve, reject)=>{
       this.http.get<ApiResponse>("https://api.github.com/users/"+login+"?access_token="+environment.access_token).toPromise().then(response=>{
-      //  for (let counter in response){
-      //   console.log(this.arrRepo.push(response[counter])) ;
+       
+
+      // console.log(this.arrRepo=response);
+      for (let counter in response){
+        
+        this.arrRepo.push(response[counter]) ;
          
-      //  }
-      this.repo.name=response.name
-      this.repo.description=response.description
+       }
+      // this.repo.name=response.name
+      // this.repo.description=response.description
        resolve();
       },
      error => {

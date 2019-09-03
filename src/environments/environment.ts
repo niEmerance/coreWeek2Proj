@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // apiUrl:"https://api.github.com/users/niEmerance?access_token=18d9bc95796705b5d97dd33ab88e8c0676d5ef76"
-  access_token:"402adf1f7c617978d0f7f9aca16ef01707092930"
+  access_token:"a1f5f63c550b4d393dca6b94f66f8285eee79c51"
 };
 
 /*

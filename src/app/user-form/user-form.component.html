@@ -1,22 +1,19 @@
 <div class="container">
         <form class="Search-form">
-                <div class="form-group">
+                <div class="form">
+                                <div class="form-group col-sm-5">
         
-                        <label for="username">User Name </label>
-                        <input type="text" required class="form-control" id="username" [(ngModel)]="username" name="username" (keyup)="findUser()">
-              
-                    </div>
-            <button type="submit">Search</button>
-            <!-- <div>
-                    <img src="{{user.avatar_url}}">
-        
-            </div> -->
+                                                <label for="username">User Name </label>
+                                                <input type="text" required class="form-control" id="username" [(ngModel)]="username" name="username">
+                                      
+                                        </div>
+                                        <button type="submit"  class="btn btn-secondary" (click)="findUser()">Search</button>
+                </div>
+            
             <div *ngIf="user">
                 
                 <div class="panel panel-default">
-                   <div class="panel-heading">
-                        {{user.login}} is a {{user.company}}
-                   </div>
+                   
                 </div>
                 <div class="panel-body">
                         <div class="row">
@@ -36,7 +33,11 @@
                                                         <h3 class="panel-title">Repositories</h3>
                                                 </div>
                                                 <div class="panel-body" >
-                                                        <p *ngFor="let r of Repository">{{r.name}}</p>
+                                                        <div *ngFor="let r of arrRepo">
+                                                                        <p >{{r.name}}</p>
+                                                                        <p>{{r.description}}</p>
+                                                        </div>
+                                                        
                                                 </div>
                                         </div>
                                 </div>
