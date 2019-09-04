@@ -1,13 +1,13 @@
 <div class="container">
         <form class="Search-form">
-                <div class="form">
+                <div class="formy">
                                 <div class="form-group col-sm-5">
         
                                                 <label for="username">User Name </label>
-                                                <input type="text" required class="form-control" id="username" [(ngModel)]="username" name="username">
+                                                <input type="text" required class="form-control" id="username" [(ngModel)]="username" name="username" #name="ngModel">
                                       
                                         </div>
-                                        <button type="submit"  class="btn btn-secondary" (click)="findUser()">Search</button>
+                                        <button type="submit" class="btn btn-secondary" (click)="findUser()" > Search </button>
                 </div>
             
             <div *ngIf="user">
@@ -26,7 +26,7 @@
                                                 <li class="list-group-item" *ngIf="user.followers">Followers: {{user.followers}}</li>
                                                 <li class="list-group-item" *ngIf="user.following">Following: {{user.following}}</li>
                                                 <li class="list-group-item" *ngIf="user.created_at">Date created: {{user.created_at}}</li> 
-                                                <!-- <li class="list-group-item" href="{{user.url}}"> View profile on Github</li>                                                                              -->
+                                                <!-- <li class="list-group-item"  href="{{user.repos_url}}"> View profile on Github</li>                                                                              -->
                                         </ul>
                                         <div class="panel panel-default">
                                                 <div class="panel-heading">

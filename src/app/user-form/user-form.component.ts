@@ -13,8 +13,8 @@ import { Router } from '@angular/router';
 })
 export class UserFormComponent implements OnInit {
               user:User;
-              username: string=" ";
-
+              username:string=" ";
+              // response:any;
   constructor(private http: HttpClient,private userService:UserRequestService, private router:Router) {
 
   }
@@ -41,7 +41,11 @@ export class UserFormComponent implements OnInit {
   // }
   
     findUser(){
-      this.router.navigate(['userform', this.username])
+      // this.http.get("https://api.github.com/users/" +this.username+"?access_token=97ab4ddaa13868773a9339e536e940552894fba1").subscribe((response)=>{
+      //   this.response=response;
+      //   console.log(this.response);
+      // })
+      this.router.navigate(['/userform', this.username])
       this.userService.userRequest(this.username)
       this.user=this.userService.user
     }

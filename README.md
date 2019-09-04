@@ -1,27 +1,32 @@
-# CoreWeek2Proj
+# Git hurb searh
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.2.
+# Description
 
-## Development server
+The user inputs his github username in the search input and after pressing the search button, the user is able to view details in his account like the profile picture, repositories,followers, following and also the location. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Author
 
-## Code scaffolding
+Niyomufasha Emerance
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## BDD
+- we were asked to make a search engine and then the user should be able to search any person on github
+- we had to use routing and services
+- we had to use promises
+- we had to use directives
+- we had to make two classes
 
-## Build
+## Technologies used
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+|   Names              | Description                 |
+|----------------------|-----------------------------|
+|Angular CLI           | To build the application    |
+|Bootstrap             | To Design well              |
 
-## Running unit tests
+## Contact information
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Name: Niyomufasha Emerance
+- Email: niyemera6@gmail.com
+- PhoneNumber: +250785297054
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+copyright &copy; 2019, NiEmerance.All rights reserved
